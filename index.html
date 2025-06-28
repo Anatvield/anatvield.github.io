@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Optimización del Análisis de Superficies</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background: #005b96;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    footer {
+      background: #ddd;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+    }
+
+    /* Carrusel */
+    .carousel {
+      position: relative;
+      max-width: 600px;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      overflow: hidden;
+      background: white;
+    }
+
+    .carousel img {
+      width: 100%;
+      display: none;
+      border-radius: 10px;
+    }
+
+    .carousel img.active {
+      display: block;
+    }
+
+    /* Botones */
+    .carousel button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 18px;
+      user-select: none;
+    }
+
+    .carousel button:hover {
+      background: rgba(0,0,0,0.8);
+    }
+
+    .prev {
+      left: 15px;
+    }
+
+    .next {
+      right: 15px;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Optimización del Análisis de Superficies</h1>
+    <nav>
+      <a href="#definicion">Definición</a>
+      <a href="#objetivos">Objetivos</a>
+      <a href="#tecnicas">Técnicas</a>
+      <a href="#herramientas">Herramientas</a>
+      <a href="#galeria">Galería</a>
+      <a href="#ejemplo">Ejemplo</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="definicion">
+      <h2>¿Qué es el análisis de superficies?</h2>
+      <p>Es el estudio de las propiedades geométricas y físicas de superficies tridimensionales...</p>
+    </section>
+
+    <section id="objetivos">
+      <h2>Objetivos de la Optimización</h2>
+      <ul>
+        <li>Reducir el tiempo de cómputo.</li>
+        <li>Mejorar la calidad de las superficies.</li>
+        <li>Simplificar modelos sin perder precisión.</li>
+      </ul>
+    </section>
+
+    <section id="tecnicas">
+      <h2>Técnicas Comunes</h2>
+      <ol>
+        <li>Optimización computacional (algoritmos rápidos).</li>
+        <li>Optimización geométrica (suavizado, remallado).</li>
+        <li>Machine Learning (ajuste automático de superficies).</li>
+      </ol>
+    </section>
+
+    <section id="herramientas">
+      <h2>Herramientas Utilizadas</h2>
+      <p>Algunos programas útiles incluyen Rhino, MeshLab, Blender, Open3D y SolidWorks.</p>
+    </section>
+
+    <section id="galeria">
+      <h2>Galería de Imágenes</h2>
+      <div class="carousel">
+        <button class="prev" aria-label="Imagen anterior">&#10094;</button>
+        <button class="next" aria-label="Imagen siguiente">&#10095;</button>
+
+        <img src="img/1.jpg" alt="Imagen 1" class="active" />
+        <img src="img/2.jpg" alt="Imagen 2" />
+        <img src="img/3.jpg" alt="Imagen 3" />
+        <img src="img/4.jpg" alt="Imagen 4" />
+        <img src="img/5.jpg" alt="Imagen 5" />
+      </div>
+    </section>
+
+    <section id="ejemplo">
+      <h2>Ejemplo de Optimización</h2>
+      <p>Se parte de una malla escaneada con ruido, se suaviza y se convierte a NURBS lista para impresión 3D.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Optimización 3D - Proyecto Académico</p>
+  </footer>
+
+  <script>
+    const carousel = document.querySelector('.carousel');
+    const images = carousel.querySelectorAll('img');
+    const prevBtn = carousel.querySelector('.prev');
+    const nextBtn = carousel.querySelector('.next');
+
+    let currentIndex = 0;
+
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.classList.toggle('active', i === index);
+      });
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    });
+  </script>
+</body>
+</html>
